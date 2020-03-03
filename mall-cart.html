@@ -17,8 +17,9 @@
 	<link rel="stylesheet" href="style.css">
 
 	<!-- Cusom css -->
-   <link rel="stylesheet" href="css/custom.css">
-
+  	<link rel="stylesheet" href="css/custom.css">
+	<link rel="stylesheet" href="css/sweetalert.css" />
+	<script src="js/sweetalert.min.js"></script>
 	<!-- Modernizer js -->
 	<script src="js/vendor/modernizr-3.5.0.min.js"></script>
 	<script src="js/angular.js"></script>
@@ -149,9 +150,9 @@
                                             <td class="product-thumbnail"><a href="#"><img src="{{c.picturePath}}" alt="product img" /></a></td>
                                             <td class="product-name"><a href="#">{{c.cateringname}}</a></td>
                                             <td class="product-price"><span class="amount">{{c.price}}</span></td>
-                                            <td class="product-quantity"><input type="number" value="1" /></td>
+                                            <td class="product-quantity"><button class="about__thumb bg--theme" ng-click="reduce(c)">-</button>&nbsp;<input id="{{c.seq}}" type="number" value="{{c.num}}" readonly="" />&nbsp;<button class="about__thumb bg--theme" ng-click="add(c)">+</button></td>
                                             <td class="product-subtotal">{{c.price*c.num}}</td>
-                                            <td class="product-remove"><a href="#">X</a></td>
+                                            <td class="product-remove"><a  ng-click="del(c.seq)">X</a></td>
                                         </tr>
                                         
                                     </tbody>
@@ -160,10 +161,10 @@
                         </form> 
                         <div class="cartbox__btn">
                             <ul class="cart__btn__list d-flex flex-wrap flex-md-nowrap flex-lg-nowrap justify-content-between">
-                                <li><a href="#">Coupon Code</a></li>
-                                <li><a href="#">Apply Code</a></li>
-                                <li><a href="#">Update Cart</a></li>
-                                <li><a href="#">Check Out</a></li>
+                            	<li></li>
+                            	<li></li>
+                            	<li></li>
+                                <li><a href="#" ng-click="pay()">Pay</a></li>
                             </ul>
                         </div>
                     </div>
@@ -171,19 +172,9 @@
                 <div class="row">
                     <div class="col-lg-6 offset-lg-6">
                         <div class="cartbox__total__area">
-                            <div class="cartbox-total d-flex justify-content-between">
-                                <ul class="cart__total__list">
-                                    <li>Cart total</li>
-                                    <li>Sub Total</li>
-                                </ul>
-                                <ul class="cart__total__tk">
-                                    <li>$70</li>
-                                    <li>$70</li>
-                                </ul>
-                            </div>
                             <div class="cart__total__amount">
-                                <span>Grand Total</span>
-                                <span>$140</span>
+                                <span>Total</span>
+                                <span>{{total}}</span>
                             </div>
                         </div>
                     </div>

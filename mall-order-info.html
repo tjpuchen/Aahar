@@ -1,9 +1,9 @@
 ﻿<!doctype html>
-<html class="no-js" lang="zxx" ng-app="index">
+<html class="no-js" lang="zxx" ng-app="orderinfo">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>Aahar || Food Delivery Html5 Template</title>
+	<title>Menu-List ||  Aahar Food Delivery Html5 Template</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -18,16 +18,15 @@
 
 	<!-- Cusom css -->
    	<link rel="stylesheet" href="css/custom.css">
-   	
-   	<link rel="stylesheet" href="css/sweetalert.css" />
+	<link rel="stylesheet" href="css/sweetalert.css" />
 	<script src="js/sweetalert.min.js"></script>
 	<!-- Modernizer js -->
 	<script src="js/vendor/modernizr-3.5.0.min.js"></script>
-	
 	<script src="js/angular.js"></script>
-	<script src="lib/mall-menu-index.js"></script>
+	<script src="lib/mall-order-info.js"></script>
+	
 </head>
-<body ng-controller="indexctrl">
+<body ng-controller="orderinfoctrl">
 	<!--[if lte IE 9]>
 		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
 	<![endif]-->
@@ -109,35 +108,27 @@
             <!-- End Mainmenu Area -->
         </header>
         <!-- End Header Area -->
-        <!-- Start Slider Area -->
-        <div class="slider__area slider--one">
-            <div class="slider__activation--1">
-                <!-- Start Single Slide -->
-                <div class="slide fullscreen bg-image--1">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-12 col-md-12 col-sm-12">
-                                <div class="slider__content">
-                                    <div class="slider__inner">
-                                        <h2>“AAHAR”</h2>
-                                        <h1>food delivery & service</h1>
-                                        <div class="slider__input">
-                                            <input type="text" placeholder="" ng-model="cateringname">
-                                            <div class="src__btn">
-                                                <a href="#" ng-click="search()">Search</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+        <!-- Start Bradcaump area -->
+        <div class="ht__bradcaump__area bg-image--18">
+            <div class="ht__bradcaump__wrap d-flex align-items-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="bradcaump__inner text-center">
+                                <h2 class="bradcaump-title">menu List view</h2>
+                                <nav class="bradcaump-inner">
+                                  <a class="breadcrumb-item" href="index.html">Home</a>
+                                  <span class="brd-separetor"><i class="zmdi zmdi-long-arrow-right"></i></span>
+                                  <span class="breadcrumb-item active">menu List view</span>
+                                </nav>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- End Single Slide -->
             </div>
         </div>
-        <!-- End Slider Area -->
-       
+        <!-- End Bradcaump area --> 
+        <!-- Start Menu Grid Area -->
         <section class="food__menu__grid__area section-padding--lg">
             <div class="container ">
                 <div class="row mt--30">
@@ -146,31 +137,23 @@
                             <!-- Start Single Content -->
                             <div class="food__list__tab__content tab-pane fade show active" id="nav-all" role="tabpanel">
                                 <!-- Start Single Food -->
-                                <div class="single__food__list d-flex wow fadeInUp" ng-repeat="cater in cateringlist">
+                                <div class="single__food__list d-flex wow fadeInUp" ng-repeat="o in orderinfolist">
                                     <div class="food__list__thumb">
                                         <a href="#">
-                                            <img src="{{cater.picturePath}}" alt="list food images">
+                                            <img src="{{o.picturePath}}" alt="list food images">
                                         </a>
                                     </div>
                                     <div class="food__list__inner d-flex align-items-center justify-content-between">
                                         <div class="food__list__details">
-                                            <h2><a href="menu-details.html">{{cater.cateringname}}</a></h2>
-                                            <p>{{cater.info}}</p>
-                                            <div class="list__btn">
-                                                <a class="food__btn grey--btn theme--hover" href="#" ng-click="gotocart(cater.seq)">Add To Cart</a>
-                                            </div>
+                                            <h2><a >{{o.cateringname}}</a></h2>
+                                            <p>单价：￥{{o.cprice}}&nbsp;&nbsp;数量：{{o.number}}</p>
+                                            <p>{{o.info}}</p>
                                         </div>
                                         <div class="food__rating">
                                             <div class="list__food__prize">
-                                                <span>{{cater.price}}</span>
+                                                <span>{{o.price}}</span>
                                             </div>
-                                            <ul class="rating">
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                            </ul>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -180,57 +163,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <ul class="food__pagination d-flex justify-content-center align-items-center mt--130">
-                            <li><a href="#" ng-click="prev()"><i class="zmdi zmdi-chevron-left"></i></a></li>
-                            <!--<li><a href="#">1</a></li>
-                            <li class="active"><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">...</a></li>
-                            <li><a href="#">7</a></li>-->
-                            <li ng-repeat="page in pageList" ng-class="{active: isActivePage(page)}">
-                    			<a href ng-click="selectPage(page)">{{page}}</a>
-                			</li>
-                            <li><a href="#" ng-click="next()"><i class="zmdi zmdi-chevron-right"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
+                
             </div>
         </section>
         <!-- End Menu Grid Area -->
-       
-       
-        <!-- Start Subscribe Area -->
-        <section class="fd__subscribe__area bg-image--6">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12">
-                        <div class="subscribe__inner">
-                            <h2>Subscribe to our newsletter</h2>
-                            <div id="mc_embed_signup">
-                                <div id="enter__email__address">
-                                    <form action="http://devitems.us11.list-manage.com/subscribe/post?u=6bbb9b6f5827bd842d9640c82&amp;id=05d85f18ef" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-                                        <div id="mc_embed_signup_scroll" class="htc__news__inner">
-                                            <div class="news__input">
-                                                <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Enter Your E-mail Address" required>
-                                            </div>
-                                            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                                            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_6bbb9b6f5827bd842d9640c82_05d85f18ef" tabindex="-1" value=""></div>
-                                            <div class="clearfix subscribe__btn"><input type="submit" value="Send Now" name="subscribe" id="mc-embedded-subscribe" class="sign__up food__btn">
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- End Subscribe Area -->
         <!-- Start Footer Area -->
         <footer class="footer__area footer--1">
             <div class="footer__wrapper bg__cat--1 section-padding--lg">
@@ -509,7 +445,7 @@
                     </div>
                 </div>
             </div>
-        </div><!-- //Cartbox -->  
+        </div><!-- //Cartbox -->    
 	</div><!-- //Main wrapper -->
 
 	<!-- JS Files -->

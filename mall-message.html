@@ -1,9 +1,9 @@
 ﻿<!doctype html>
-<html class="no-js" lang="zxx" ng-app="caterInfo">
+<html class="no-js" lang="zxx" ng-app="msg">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>Menu Details ||  Aahar Food Delivery Html5 Template</title>
+	<title>Blog-Details ||  Aahar Food Delivery Html5 Template</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -22,9 +22,9 @@
 	<!-- Modernizer js -->
 	<script src="js/vendor/modernizr-3.5.0.min.js"></script>
 	<script src="js/angular.js"></script>
-	<script src="lib/mall-menu-info.js"></script>
+	<script src="lib/mall-message.js"></script>
 </head>
-<body ng-controller="caterInfoctrl">
+<body ng-controller="msgctrl">
 	<!--[if lte IE 9]>
 		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
 	<![endif]-->
@@ -52,12 +52,21 @@
                             <div class="main__menu__wrap">
                                 <nav class="main__menu__nav d-none d-lg-block">
                                     <ul class="mainmenu">
-                                        <li>
-                                        	<a href="mall-index.html">Home</a>
+                                        <li class="drop"><a href="index.html">Home</a>
+                                            <ul class="dropdown__menu">
+                                                <li><a href="index.html">Home Food Delivery</a></li>
+                                                <li><a href="index-2.html">Home Pizza Delivery</a></li>
+                                                <li><a href="index-3.html">Home Backery Delivery</a></li>
+                                                <li><a href="index-4.html">Home Box Layout</a></li>
+                                            </ul>
                                         </li>
                                         <li><a href="about-us.html">About</a></li>
-                                        <li>
-                                        	<a href="mall-menu-list.html">Menu</a>
+                                        <li class="drop"><a href="menu-grid.html">Menu</a>
+                                            <ul class="dropdown__menu">
+                                                <li><a href="menu-grid.html">Menu Grid</a></li>
+                                                <li><a href="menu-list.html">Menu List</a></li>
+                                                <li><a href="menu-details.html">Menu Details</a></li>
+                                            </ul>
                                         </li>
                                         <li><a href="gallery.html">Gallery</a></li>
                                         <li class="drop"><a href="blog-list.html">Blog</a>
@@ -77,7 +86,6 @@
                                                 <li><a href="contact.html">Contact Page</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="mall-cart.html">Cart</a></li>
                                         <li><a href="contact.html">Contact</a></li>
                                     </ul>
                                 </nav>
@@ -113,11 +121,11 @@
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <div class="bradcaump__inner text-center">
-                                <h2 class="bradcaump-title">Menu Details</h2>
+                                <h2 class="bradcaump-title">comment’s</h2>
                                 <nav class="bradcaump-inner">
                                   <a class="breadcrumb-item" href="index.html">Home</a>
                                   <span class="brd-separetor"><i class="zmdi zmdi-long-arrow-right"></i></span>
-                                  <span class="breadcrumb-item active">Menu Details</span>
+                                  <span class="breadcrumb-item active">comment’s</span>
                                 </nav>
                             </div>
                         </div>
@@ -127,45 +135,76 @@
         </div>
         <!-- End Bradcaump area --> 
         <!-- Start Blog List View Area -->
-        <section class="blog__list__view section-padding--lg menudetails-right-sidebar bg--white">
+        <section class="blog__details__wrapper section-padding--lg blog-details-page bg--white">
             <div class="container">
                 <div class="row">
                 	<div class ="col-lg-2 col-md-12 col-sm-12"></div>
                     <div class="col-lg-8 col-md-12 col-sm-12">
-                        <div class="food__menu__container">
-                            <div class="food__menu__inner d-flex flex-wrap flex-md-nowrap flex-lg-nowrap">
-                               <div class="food__list__thumb">
-                                    <a href="#">
-                                        <img src="{{cateringInfo.picturePath}}" alt="list food images">
-                                    </a>
-                                </div>
-                                <div class="food__menu__details">
-                                    <div class="food__menu__content">
-                                        <h2>{{cateringInfo.cateringname}}</h2>
-                                        <ul class="food__dtl__prize d-flex">
-                                            <li>{{cateringInfo.price}}</li>
-                                        </ul>
-                                        <ul class="rating">
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                        <p>{{cateringInfo.info}}</p>
-                                        <div class="product-action-wrap">
-                                            <div class="product-quantity">
-                                                <div class="add__to__cart__btn">
-                                                    <a class="food__btn" href="cart.html">Add To Cart</a>
+                        <div class="blog__details__container">
+                            <!-- Start Blog Details -->
+                            <div class="bl__details__inner">
+                                <!-- Start Blog Comment -->
+                                <div class="blog__comment__wrapper">
+                                    <h2 class="blog__title">comment’s</h2>
+                                    <div class="blog__comment__inner">
+                                        <!-- Start Single Comment -->
+                                        <div class="comment d-flex flex-wrap flex-md-nowrap flex-lg-nowrap" ng-repeat="m in msglist"> 
+                                            <div class="comment__details">
+                                                <h5>{{m.username}}</h5>
+                                                <div class="cmment__date d-flex justify-content-between">
+                                                    <span>February  13,  2020</span>
+                                                    <ul class="rating d-flex">
+                                                        <li><i class="zmdi zmdi-star"></i></li>
+                                                        <li><i class="zmdi zmdi-star"></i></li>
+                                                        <li><i class="zmdi zmdi-star"></i></li>
+                                                        <li><i class="zmdi zmdi-star"></i></li>
+                                                        <li><i class="zmdi zmdi-star"></i></li>
+                                                    </ul>
                                                 </div>
+                                                <p>{{m.context}}</p>
+                                                <ul class="reply__btn d-flex justify-content-start justify-content-md-end justify-content-lg-end">
+                                                    <li><a href="#"><i class="fa fa-reply"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-up"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-down"></i></a></li>
+                                                </ul>
                                             </div>
+                                            
+                                        </div>
+                                        <!-- End Single Comment -->
+                                        <ul class="food__pagination d-flex justify-content-center align-items-center mt--130">
+				                            <li><a href="#" ng-click="prev()"><i class="zmdi zmdi-chevron-left"></i></a></li>
+				                            <!--<li><a href="#">1</a></li>
+				                            <li class="active"><a href="#">2</a></li>
+				                            <li><a href="#">3</a></li>
+				                            <li><a href="#">4</a></li>
+				                            <li><a href="#">5</a></li>
+				                            <li><a href="#">...</a></li>
+				                            <li><a href="#">7</a></li>-->
+				                            <li ng-repeat="page in pageList" ng-class="{active: isActivePage(page)}">
+				                    			<a href ng-click="selectPage(page)">{{page}}</a>
+				                			</li>
+				                            <li><a href="#" ng-click="next()"><i class="zmdi zmdi-chevron-right"></i></a></li>
+			                        	</ul>
+                                    </div>
+                                </div>
+                                <!-- End Blog Comment -->
+                                <!-- Start Comment Form -->
+                                <div class="blog__comment__form">
+                                    <h2 class="blog__title">leave A Comment</h2>
+                                    <div class="comment__form">
+                                        <div class="ct__form__box">
+                                            <textarea name="message" placeholder="Your Message" ng-model="context"></textarea>
+                                        </div>
+                                        <div class="comment__btn">
+                                            <a class="food__btn" href="#" ng-click="add();">submit</a>
                                         </div>
                                     </div>
                                 </div>
+                                <!-- End Comment Form -->
                             </div>
+                            <!-- End Blog Details -->
                         </div>
                     </div>
-                    
                 </div>
             </div>
         </section>
@@ -360,18 +399,6 @@
                     <div class="accountbox__register tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                         <form action="#">
                             <div class="single-input">
-                                <input class="cr-round--lg" type="text" placeholder="User name">
-                            </div>
-                            <div class="single-input">
-                                <input class="cr-round--lg" type="email" placeholder="Email address">
-                            </div>
-                            <div class="single-input">
-                                <input class="cr-round--lg" type="password" placeholder="Password">
-                            </div>
-                            <div class="single-input">
-                                <input class="cr-round--lg" type="password" placeholder="Confirm password">
-                            </div>
-                            <div class="single-input">
                                 <button type="submit" class="food__btn"><span>Sign Up</span></button>
                             </div>
                         </form>
@@ -448,7 +475,7 @@
                     </div>
                 </div>
             </div>
-        </div><!-- //Cartbox -->   
+        </div><!-- //Cartbox -->    
 	</div><!-- //Main wrapper -->
 
 	<!-- JS Files -->
