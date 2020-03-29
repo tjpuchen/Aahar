@@ -1,5 +1,5 @@
 ﻿<!doctype html>
-<html class="no-js" lang="zxx" ng-app="index">
+<html class="no-js" lang="zxx" ng-app="usercenter">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -16,14 +16,15 @@
 	<link rel="stylesheet" href="css/plugins.css">
 	<link rel="stylesheet" href="style.css">
 	<!-- Cusom css -->
-   <link rel="stylesheet" href="css/custom.css">
-
+    <link rel="stylesheet" href="css/custom.css">
+	<link rel="stylesheet" href="css/sweetalert.css" />
+	<script src="js/sweetalert.min.js"></script>
 	<!-- Modernizer js -->
 	<script src="js/vendor/modernizr-3.5.0.min.js"></script>
     <script src="js/angular.js"></script>
-    <script src="lib/mall-menu-index.js"></script>
+    <script src="lib/mall-userCenter.js"></script>
 </head>
-<body>
+<body ng-controller="usercenterctrl">
 	<!--[if lte IE 9]>
 		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
 	<![endif]-->
@@ -33,7 +34,7 @@
 	<!-- <div class="fakeloader"></div> -->
 
 	<!-- Main wrapper -->
-	<div class="wrapper" id="wrapper" ng-controller="indexctrl">
+	<div class="wrapper" id="wrapper" >
 		<!-- Start Header Area -->
         <header class="htc__header bg--white">
             <!-- Start Mainmenu Area -->
@@ -59,23 +60,34 @@
                                         </li>
                                         <li><a href="mall-cart.html">购物车</a></li>
                                         <li><a href="mall-order.html">订单</a></li>
-                                        <li><a href="mall-message.html">消息</a></li>
+                                        <li><a href="mall-message.html">留言</a></li>
+                                        <li><a href="notice-list.html">公告</a></li>
                                         <li><a href="about-us.html">个人中心</a></li>
                                     </ul>
                                 </nav>
-                                
+
                             </div>
                         </div>
                         <div class="col-lg-1 col-sm-4 col-md-4 order-2 order-lg-3">
                             <div class="header__right d-flex justify-content-end">
-                                <div class="log__in">
+
+                                <div class="log__in" ng-hide="isLogin==1">
                                     <a class="accountbox-trigger" href="#"><i class="zmdi zmdi-account-o"></i></a>
                                 </div>
-                                <div class="shopping__cart">
+
+                                <div class="log__in" ng-show="isLogin==1">
+                                    <a  href="about-us.html"><i class="zmdi zmdi-account-o"></i></a>
+                                </div>
+
+
+                                <!--<div class="shopping__cart">
                                     <a class="minicart-trigger" href="#"><i class="zmdi zmdi-shopping-basket"></i></a>
                                     <div class="shop__qun">
                                         <span>03</span>
                                     </div>
+                                </div>-->
+                                <div class="shopping__cart" ng-show="isLogin==1">
+                                    <a  href="#"><button class=" btn btn-dark" ng-click="logOut()">logout</button></a>
                                 </div>
                             </div>
                         </div>
@@ -104,7 +116,7 @@
                             <div ng-if="memberid==2">会员等级：<span >白银会员</span></div>
                             <div ng-if="memberid==3">会员等级：<span >黄金会员</span></div>
                             <div ng-if="memberid==4">会员等级：<span >铂金会员</span></div>
-                            <div>积分：<span>200</span></div>
+                            <div>积分：<span>{{account}}</span></div>
                         </div>
                         <br/>
                         <div><button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">修改个人信息</button></button></div>
