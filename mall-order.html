@@ -149,7 +149,7 @@
 		                                            <li>
 		                                            	<div class="list__btn">
                                                 			<a class="food__btn grey--btn theme--hover" href="#" ng-click="gotoInfo(o.seq)">详情</a>
-                                                			<a class="food__btn grey--btn theme--hover" href="#" ng-click="updataStatus(o.seq)">签收</a>
+                                                			<a ng-if="o.status != '已收货'" class="food__btn grey--btn theme--hover" href="#" ng-click="updataStatus(o.seq)">签收</a>
                                                 			
                                            				</div>
 		                                            </li>
