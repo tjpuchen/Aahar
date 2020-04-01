@@ -350,7 +350,7 @@
         </footer>
         <!-- End Footer Area -->
         <!-- Login Form -->
-        <div class="accountbox-wrapper">
+        <div class="accountbox-wrapper" >
             <div class="accountbox text-left">
                 <ul class="nav accountbox__filters" id="myTab" role="tablist">
                     <li>
@@ -364,42 +364,32 @@
                     <div class="accountbox__login tab-pane fade show active" id="log" role="tabpanel" aria-labelledby="log-tab">
                         <form action="#">
                             <div class="single-input">
-                                <input class="cr-round--lg" type="text" placeholder="User name or email">
+                                <input class="cr-round--lg" type="text" placeholder="username" ng-model="username">
                             </div>
                             <div class="single-input">
-                                <input class="cr-round--lg" type="password" placeholder="Password">
+                                <input class="cr-round--lg" type="password" placeholder="Password" ng-model="password">
                             </div>
                             <div class="single-input">
-                                <button type="submit" class="food__btn"><span>Go</span></button>
-                            </div>
-                            <div class="accountbox-login__others">
-                                <h6>Or login with</h6>
-                                <div class="social-icons">
-                                    <ul>
-                                        <li class="facebook"><a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a></li>
-                                        <li class="twitter"><a href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>
-                                        <li class="pinterest"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                    </ul>
-                                </div>
+                                <button type="button" class="food__btn" ng-click="login()"><span>login</span></button>
                             </div>
                         </form>
                     </div>
                     <div class="accountbox__register tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                         <form action="#">
                             <div class="single-input">
-                                <input class="cr-round--lg" type="text" placeholder="User name">
+                                <input class="cr-round--lg" type="text" placeholder="User name" ng-model="username1">
                             </div>
                             <div class="single-input">
-                                <input class="cr-round--lg" type="email" placeholder="Email address">
+                                <input class="cr-round--lg" type="text" placeholder="tel" ng-model="tel2">
                             </div>
                             <div class="single-input">
-                                <input class="cr-round--lg" type="password" placeholder="Password">
+                                <input class="cr-round--lg" type="password" placeholder="Password" ng-model="password1">
                             </div>
                             <div class="single-input">
-                                <input class="cr-round--lg" type="password" placeholder="Confirm password">
+                                <input class="cr-round--lg" type="password" placeholder="Confirm password" ng-model="password2">
                             </div>
                             <div class="single-input">
-                                <button type="submit" class="food__btn"><span>Sign Up</span></button>
+                                <button type="submit" class="food__btn" ng-click="register()"><span>Sign Up</span></button>
                             </div>
                         </form>
                     </div>

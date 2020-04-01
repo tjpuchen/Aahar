@@ -134,6 +134,54 @@
                     </div>
                     <br/>
                 </div>
+                <!-- Login Form -->
+				        <div class="accountbox-wrapper" >
+				            <div class="accountbox text-left">
+				                <ul class="nav accountbox__filters" id="myTab" role="tablist">
+				                    <li>
+				                        <a class="active" id="log-tab" data-toggle="tab" href="#log" role="tab" aria-controls="log" aria-selected="true">Login</a>
+				                    </li>
+				                    <li>
+				                        <a id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Register</a>
+				                    </li>
+				                </ul>
+				                <div class="accountbox__inner tab-content" id="myTabContent">
+				                    <div class="accountbox__login tab-pane fade show active" id="log" role="tabpanel" aria-labelledby="log-tab">
+				                        <form action="#">
+				                            <div class="single-input">
+				                                <input class="cr-round--lg" type="text" placeholder="username" ng-model="username">
+				                            </div>
+				                            <div class="single-input">
+				                                <input class="cr-round--lg" type="password" placeholder="Password" ng-model="password">
+				                            </div>
+				                            <div class="single-input">
+				                                <button type="button" class="food__btn" ng-click="login()"><span>login</span></button>
+				                            </div>
+				                        </form>
+				                    </div>
+				                    <div class="accountbox__register tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+				                        <form action="#">
+				                            <div class="single-input">
+				                                <input class="cr-round--lg" type="text" placeholder="User name" ng-model="username1">
+				                            </div>
+				                            <div class="single-input">
+				                                <input class="cr-round--lg" type="text" placeholder="tel" ng-model="tel2">
+				                            </div>
+				                            <div class="single-input">
+				                                <input class="cr-round--lg" type="password" placeholder="Password" ng-model="password1">
+				                            </div>
+				                            <div class="single-input">
+				                                <input class="cr-round--lg" type="password" placeholder="Confirm password" ng-model="password2">
+				                            </div>
+				                            <div class="single-input">
+				                                <button type="submit" class="food__btn" ng-click="register()"><span>Sign Up</span></button>
+				                            </div>
+				                        </form>
+				                    </div>
+				                    <span class="accountbox-close-button"><i class="zmdi zmdi-close"></i></span>
+				                </div>
+				            </div>
+				        </div><!-- //Login Form -->
 
             </div><!-- //Main wrapper -->
 
